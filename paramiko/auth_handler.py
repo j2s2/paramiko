@@ -663,7 +663,10 @@ Error Message: {}
     def _parse_userauth_info_request(self, m):
         if self.auth_method == "publickey":
             self._log(
-                INFO, "Bug Cisco: receive SSH_MSG_USERAUTH_PK_OK in ({}) cause switch doesn't consider signature in 1st sending. So resending signature.".format(self.auth_method)
+                INFO,
+				"Bug Cisco: receive SSH_MSG_USERAUTH_PK_OK in ({}) cause switch doesn't consider signature in 1st sending. So resending signature.".format(
+					self.auth_method
+				),
             )
             if self.msg_pubkey_with_sig is None:
                 raise SSHException("No pubkey signature in cellar")
